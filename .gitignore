@@ -13,3 +13,8 @@ Thumbs.db
 # Editor
 .vscode/
 .idea/
+.env
+.env.*
+node_modules/
+*.pem
+*.key
