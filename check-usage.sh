@@ -176,6 +176,8 @@ if [ -z "$RESPONSE" ]; then
   echo "ERROR: Failed to fetch usage data (empty response)" >&2
   # Fall back to stale cache if available
   if [ -f "$STATE_FILE" ]; then
+    # Reset cache mtime so subsequent calls respect the TTL instead of retrying
+    touch "$STATE_FILE"
     echo "Using stale cache:" >&2
     format_output "$(cat "$STATE_FILE")"
   fi
